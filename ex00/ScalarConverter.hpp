@@ -15,6 +15,9 @@ public:
 private:
     // Private constructor to prevent instantiation
     ScalarConverter();
+    ScalarConverter(const ScalarConverter& other);
+    ScalarConverter& operator=(const ScalarConverter& other);
+    ~ScalarConverter();
 
     // Helper functions
     static bool isChar(const std::string& literal);
