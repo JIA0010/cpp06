@@ -6,6 +6,7 @@
 #include <limits>
 #include <cstdlib>
 #include <cctype>
+#include <iomanip> // std::setprecision
 
 class ScalarConverter {
 public:

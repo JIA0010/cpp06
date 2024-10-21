@@ -105,8 +105,8 @@ void ScalarConverter::printFloat(const std::string& literal) {
     else
         std::cout << "Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(f) << std::endl;
-    std::cout << "float: " << f << "f" << std::endl;
-    std::cout << "double: " << static_cast<double>(f) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl; // 42.0f
+    std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl; // 42.0
 }
 
 void ScalarConverter::printDouble(const std::string& literal) {
@@ -117,6 +117,6 @@ void ScalarConverter::printDouble(const std::string& literal) {
     else
         std::cout << "Non displayable" << std::endl;
     std::cout << "int: " << static_cast<int>(d) << std::endl;
-    std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;; // 小数点以下1桁で固定
     std::cout << "double: " << d << std::endl;
 }
