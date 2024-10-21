@@ -16,7 +16,10 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
 ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(const std::string& literal) {
-    if (isChar(literal)) {
+      
+    if(isSpecial(literal)) {
+        printSpecial(literal);
+    } else if (isChar(literal)) {
         printChar(literal);
     } else if (isInt(literal)) {
         printInt(literal);
@@ -26,7 +29,11 @@ void ScalarConverter::convert(const std::string& literal) {
         printDouble(literal);
     } else {
         std::cout << "Invalid input" << std::endl;
-    }
+    };
+}
+
+bool ScalarConverter::isSpecial(const std::string& literal) {
+    return literal == "nan" || literal == "nanf" || literal == "+inf" || literal == "+inff" || literal == "-inf" || literal == "-inff";
 }
 
 bool ScalarConverter::isChar(const std::string& literal) {
@@ -49,6 +56,25 @@ bool ScalarConverter::isDouble(const std::string& literal) {
     char* end;
     std::strtod(literal.c_str(), &end);
     return *end == '\0';  // 最後まで正しい double 形式
+}
+
+void ScalarConverter::printSpecial(const std::string& literal) {
+    if (literal == "nan" || literal == "nanf") {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
+    } else if (literal == "+inf" || literal == "+inff") {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: inff" << std::endl;
+        std::cout << "double: inf" << std::endl;
+    } else {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
+    }
 }
 
 void ScalarConverter::printChar(const std::string& literal) {

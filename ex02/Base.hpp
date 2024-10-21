@@ -12,5 +12,4 @@ class C : public Base {};
 
 Base* generate();
 
-
 #endif
