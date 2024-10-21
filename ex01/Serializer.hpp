@@ -9,11 +9,12 @@ typedef struct s_data {
     int value;
 }t_data;
 class Serializer {
-public:
+private:
     Serializer();
     Serializer(const Serializer& other);
     Serializer& operator=(const Serializer& other);
     ~Serializer();
+public:
     // オブジェクトをuintptr_tにシリアライズする
     static uintptr_t serialize(t_data* ptr);
 
