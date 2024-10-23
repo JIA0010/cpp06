@@ -1,8 +1,9 @@
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 
-#include <cstdint> // uintptr_tを使用するために必要
 #include <string>
+#include <stdint.h>
+#include <iostream>
 
 typedef struct s_data {
     std::string name;

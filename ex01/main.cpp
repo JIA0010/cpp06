@@ -1,5 +1,4 @@
 #include "Serializer.hpp"
-#include <iostream>
 
 int main() {
     // Data構造体を作成
